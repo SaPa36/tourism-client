@@ -21,8 +21,10 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
+                form.reset();
+                const createdAt = result.user?.metadata?.creationTime;
 
-                const user = { name, email }
+                const user = { name, email, createdAt }
                 fetch('http://localhost:3000/users', {
                     method: 'POST',
                     headers: {

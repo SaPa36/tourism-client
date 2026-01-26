@@ -1,8 +1,50 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import loginImg from '../../assets/login.jpg';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+
+    const {signInUser} = useContext(AuthContext);
+
+    const handleLogin = event => {
+        event.preventDefault(); 
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value
+        console.log(email, password);
+
+        signInUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            form.reset();
+
+            const user = {
+                email,
+                lastLoggedAt: result.user?.metadata?.lastSignInTime
+            }
+
+            //update user info in the server
+            fetch('http://localhost:3000/users', {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            });
+            
+
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+
     return (
         <div className="hero bg-base-200 ">
 
@@ -12,7 +54,7 @@ const Login = () => {
 
                     <img className='w-full rounded-2xl' src={loginImg} alt="Login" />
                 </div>
-                <form className="card bg-white pt-8 pb-8 pl-5 pr-5 w-full max-w-sm shrink-0 shadow-blue-900 shadow-2xl">
+                <form onSubmit={handleLogin} className="card bg-white pt-8 pb-8 pl-5 pr-5 w-full max-w-sm shrink-0 shadow-blue-900 shadow-2xl">
                     <h1 className="text-5xl text-black font-bold text-center">Login Now!</h1>
                     <div className="card-body">
                         <fieldset className="fieldset">
