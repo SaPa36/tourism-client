@@ -5,7 +5,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handleSignup = event => {
         event.preventDefault();
@@ -18,22 +18,37 @@ const Register = () => {
 
         createUser(email, password)
 
-        .then(result => {
-            
-            console.log(createdUser);
-        })
-        .catch(error => {
-            console.log(error);
-        });
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser);
+
+                const user = { name, email }
+                fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+            })
+
+
+            .catch(error => {
+                console.log(error);
+            });
 
     }
     return (
         <div className="hero bg-base-200 ">
-            
+
             <div className="hero-content mt-7  flex-col lg:flex-row">
-                
+
                 <div className="text-center shadow-blue-900 shadow-2xl w-1/2 lg:text-left">
-                    
+
                     <img className='w-full rounded-2xl' src={loginImg} alt="Login" />
                 </div>
 
@@ -47,15 +62,15 @@ const Register = () => {
                             <input type="email" className="input rounded-xl" name='email' placeholder="Email" />
                             <label className="label text-black pl-2 font-bold">Password</label>
                             <input type="password" className="input rounded-xl" name='password' placeholder="Password" />
-                            
+
                             <button className="btn btn-neutral rounded-xl mt-4">Register</button>
-                            <p className='text-black mt-4 pl-2 '>Already Have an Account? Please 
-                                 <Link className='text-blue-800 font-bold' to="/login">  Login</Link></p>
+                            <p className='text-black mt-4 pl-2 '>Already Have an Account? Please
+                                <Link className='text-blue-800 font-bold' to="/login">  Login</Link></p>
                         </fieldset>
                     </div>
                 </form>
             </div>
-            
+
         </div>
     );
 };
