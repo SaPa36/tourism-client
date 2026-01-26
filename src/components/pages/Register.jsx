@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import loginImg from '../../assets/login.jpg';
 import { Link } from 'react-router-dom';
+import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
@@ -15,6 +16,21 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value
         console.log(name, email, password);
+
+
+        //password checkinng
+        if (password.length < 6) {
+            toast.error("Password Can not be less then 6 charecter", {});
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            toast.error("Password must be one UpperCase Charecter", {});
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            toast.error("Password must be one LowerCase Charecter", {});
+            return;
+        }
 
         createUser(email, password)
 
@@ -72,6 +88,7 @@ const Register = () => {
                     </div>
                 </form>
             </div>
+             <Toaster position="top-center" reverseOrder={false} />
 
         </div>
     );
