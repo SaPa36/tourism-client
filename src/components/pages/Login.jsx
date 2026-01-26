@@ -1,48 +1,67 @@
 import React, { useContext } from 'react';
 import loginImg from '../../assets/login.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { FaGoogle } from "react-icons/fa";
+
 
 const Login = () => {
 
-    const {signInUser} = useContext(AuthContext);
+    const { signInUser, googleSignIn } = useContext(AuthContext);
+
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = event => {
-        event.preventDefault(); 
+        event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value
         console.log(email, password);
 
         signInUser(email, password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            form.reset();
+            .then(result => {
+                toast.success("Login Successfully");
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                form.reset();
+                navigate(location?.state ? location.state : "/");
 
-            const user = {
-                email,
-                lastLoggedAt: result.user?.metadata?.lastSignInTime
-            }
+                const user = {
+                    email,
+                    lastLoggedAt: result.user?.metadata?.lastSignInTime
+                }
 
-            //update user info in the server
-            fetch('http://localhost:3000/users', {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
+                //update user info in the server
+                fetch('http://localhost:3000/users', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    });
+
+
             })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
+            .catch(error => {
+                console.log(error);
             });
-            
+    }
 
-        })
-        .catch(error => {
-            console.log(error);
-        });
+    //google sign in handler
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     return (
@@ -58,7 +77,7 @@ const Login = () => {
                     <h1 className="text-5xl text-black font-bold text-center">Login Now!</h1>
                     <div className="card-body">
                         <fieldset className="fieldset">
-                            
+
                             <label className="label text-black pl-2 font-bold">Email</label>
                             <input type="email" className="input rounded-xl" name='email' placeholder="Email" />
                             <label className="label text-black pl-2 font-bold">Password</label>
@@ -69,6 +88,11 @@ const Login = () => {
                                 <Link className='text-blue-800 font-bold' to="/register">  Register</Link></p>
                         </fieldset>
                     </div>
+                    <button onClick={handleGoogleSignIn} className="flex items-center ml-40 justify-center w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 transition">
+                        <FaGoogle className="text-3xl text-red-500 " />
+                    </button>
+
+
                 </form>
             </div>
 

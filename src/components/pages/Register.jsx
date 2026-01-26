@@ -3,6 +3,7 @@ import loginImg from '../../assets/login.jpg';
 import { Link } from 'react-router-dom';
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
@@ -14,8 +15,9 @@ const Register = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const password = form.password.value
-        console.log(name, email, password);
+        const password = form.password.value;
+        const photoURL = form.photoURL.value;
+        console.log(name, email, password, photoURL);
 
 
         //password checkinng
@@ -35,12 +37,18 @@ const Register = () => {
         createUser(email, password)
 
             .then(result => {
+                Swal.fire({
+                    title: "Registration Successful!",
+                    icon: "success",
+                    draggable: true
+                });
+
                 const createdUser = result.user;
                 console.log(createdUser);
                 form.reset();
                 const createdAt = result.user?.metadata?.creationTime;
 
-                const user = { name, email, createdAt }
+                const user = { name, email, photoURL, createdAt }
                 fetch('http://localhost:3000/users', {
                     method: 'POST',
                     headers: {
@@ -57,6 +65,7 @@ const Register = () => {
 
             .catch(error => {
                 console.log(error);
+                toast.error(error.message);
             });
 
     }
@@ -70,7 +79,7 @@ const Register = () => {
                     <img className='w-full rounded-2xl' src={loginImg} alt="Login" />
                 </div>
 
-                <form onSubmit={handleSignup} className="card bg-white pt-3 pb-3 pl-5 pr-5 w-full max-w-sm shrink-0 shadow-blue-900 shadow-2xl">
+                <form onSubmit={handleSignup} className="card bg-white pt-1  pl-5 pr-5 w-full max-w-sm shrink-0 shadow-blue-900 shadow-2xl">
                     <h1 className="text-5xl text-black font-bold text-center">Register now!</h1>
                     <div className="card-body">
                         <fieldset className="fieldset">
@@ -81,14 +90,23 @@ const Register = () => {
                             <label className="label text-black pl-2 font-bold">Password</label>
                             <input type="password" className="input rounded-xl" name='password' placeholder="Password" />
 
+
+
+                            <label className="label text-black pl-2 required font-bold">Photo URL</label>
+                            <input type="text" className="input rounded-xl" name='photoURL'
+                                placeholder="Photo URL" />
+
                             <button className="btn btn-neutral rounded-xl mt-4">Register</button>
+
                             <p className='text-black mt-4 pl-2 '>Already Have an Account? Please
-                                <Link className='text-blue-800 font-bold' to="/login">  Login</Link></p>
+                                <Link className='text-blue-800 font-bold' to="/login">  Login</Link>
+                            </p>
+
                         </fieldset>
                     </div>
                 </form>
             </div>
-             <Toaster position="top-center" reverseOrder={false} />
+            <Toaster position="top-center" reverseOrder={false} />
 
         </div>
     );
