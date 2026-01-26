@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        toast.success("Logout Successfully");
+        logOut()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="">All Tourist Spot</NavLink></li>
+
         <li><NavLink to="">Add Tourist Spot</NavLink></li>
         <li><NavLink to="">My List</NavLink></li>
 
@@ -31,23 +47,58 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="navbar-end gap-x-5 ">
-                <NavLink to="/login">
-                    <button className="bg-gradient-to-br from-blue-500 to-teal-400 
+
+
+            <div className="navbar-end">
+                {user ? (
+                    <div className="align-middle dropdown dropdown-end">
+                        <div className="flex">
+                            <div>
+                                <div
+                                    tabIndex={0}
+                                    role="button"
+                                    className="btn btn-ghost btn-circle avatar"
+                                >
+                                    <div className="w-10 rounded-full">
+                                        <img
+                                            alt="Tailwind CSS Navbar component"
+                                            src="https://i.ibb.co/cfMZSVw/sapa5.jpg "
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button onClick={handleLogOut} className="ml-3 bg-gradient-to-br from-blue-500 to-teal-400 
                     hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full 
                     transition-all duration-300 shadow-lg shadow-blue-500/20 active:scale-95">
-                         Login
-                    </button>
-                </NavLink>
-                <NavLink to="/register">
-                    <button className="bg-gradient-to-br from-blue-500 to-teal-400
-                     hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full
-                      transition-all duration-300 shadow-lg shadow-blue-500/20 active:scale-95">
-                        Register
-                    </button>
-                </NavLink>
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <>
+                        <NavLink to="/login">
+                            <button className="bg-gradient-to-br from-blue-500 to-teal-400 
+                    hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full 
+                    transition-all duration-300 shadow-lg shadow-blue-500/20 active:scale-95">Login</button>
+                        </NavLink>
+
+                        <NavLink to="/register">
+                            <button className="bg-gradient-to-br ml-3 from-blue-500 to-teal-400 
+                    hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full 
+                    transition-all duration-300 shadow-lg shadow-blue-500/20 active:scale-95">Register</button>
+                        </NavLink>
+                    </>
+
+
+
+
+                )}
             </div>
-        </div>
+            <Toaster position="top-center" reverseOrder={false} />
+
+        </div >
     );
 };
 

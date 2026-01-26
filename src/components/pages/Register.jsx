@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import loginImg from '../../assets/login.jpg';
 import { Link } from 'react-router-dom';
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
+    const [showPass, setShowPass] = useState(false);
 
     const handleSignup = event => {
         event.preventDefault();
@@ -87,8 +89,25 @@ const Register = () => {
                             <input type="text" className="input rounded-xl" name='name' placeholder="Name" />
                             <label className="label text-black pl-2 font-bold">Email</label>
                             <input type="email" className="input rounded-xl" name='email' placeholder="Email" />
+
+                            {/* password field with show hide functionality */}
                             <label className="label text-black pl-2 font-bold">Password</label>
-                            <input type="password" className="input rounded-xl" name='password' placeholder="Password" />
+                            <div className="relative form-control ">
+                                <input
+                                    className="input rounded-xl"
+                                    placeholder="Password"
+                                    type={showPass ? "text" : "password"}
+                                    name="password"
+                                    id=""
+                                    required
+                                />
+                                <p
+                                    className="absolute top-4 right-2"
+                                    onClick={() => setShowPass(!showPass)}
+                                >
+                                    {showPass ? <FaRegEye /> : <FaRegEyeSlash />}
+                                </p>
+                            </div>
 
 
 

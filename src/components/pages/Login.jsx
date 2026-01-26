@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import loginImg from '../../assets/login.jpg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import toast from "react-hot-toast";
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
 
     const { signInUser, googleSignIn } = useContext(AuthContext);
+    const [showPass, setShowPass] = useState(false);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -25,7 +29,8 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 form.reset();
-                navigate(location?.state ? location.state : "/");
+                navigate(location.state?.from?.pathname || "/");
+
 
                 const user = {
                     email,
@@ -48,8 +53,13 @@ const Login = () => {
 
             })
             .catch(error => {
-                console.log(error);
+                Swal.fire({
+                    title: "Login Failed!",
+                    icon: "error",
+                    draggable: true
+                });
             });
+
     }
 
     //google sign in handler
@@ -81,7 +91,22 @@ const Login = () => {
                             <label className="label text-black pl-2 font-bold">Email</label>
                             <input type="email" className="input rounded-xl" name='email' placeholder="Email" />
                             <label className="label text-black pl-2 font-bold">Password</label>
-                            <input type="password" className="input rounded-xl" name='password' placeholder="Password" />
+                            <div className="relative form-control ">
+                                <input
+                                    className="input  rounded-xl"
+                                    placeholder="Password"
+                                    type={showPass ? "text" : "password"}
+                                    name="password"
+                                    id=""
+                                    required
+                                />
+                                <p
+                                    className="absolute top-4 right-2"
+                                    onClick={() => setShowPass(!showPass)}
+                                >
+                                    {showPass ? <FaRegEye /> : <FaRegEyeSlash />}
+                                </p>
+                            </div>
 
                             <button className="btn btn-neutral rounded-xl mt-4">Login</button>
                             <p className='text-black mt-4 pl-2 '>Are You New? Please
