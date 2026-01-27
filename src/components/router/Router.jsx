@@ -5,11 +5,12 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import Banner from "../pages/Banner";
+
 import PrivateRouter from "./PrivateRouter";
 import AddTouristSpot from "../pages/AddTouristSpot";
-import TouristSpots from "../pages/TouristSpots";
+
 import MyList from "../pages/MyList";
+import AllTouristSpots from "../pages/AllTouristSpots";
 
 
 const router = createBrowserRouter([
@@ -31,10 +32,11 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>
             },
+            
             {
-                path: "/tourist-spots",
-                element: <TouristSpots></TouristSpots>,
-                
+                path: "/all-tourist-spots",
+                element: <AllTouristSpots>  </AllTouristSpots>,
+                loader: () => fetch('http://localhost:3000/tourist-spots')
             },
 
             // Private Routes

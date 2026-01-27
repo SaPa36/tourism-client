@@ -21,7 +21,7 @@ const Navbar = () => {
 
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/all-tourist-spot">All Tourist Spot</NavLink></li>
+        <li><NavLink to="/all-tourist-spots">All Tourist Spot</NavLink></li>
 
         {/* Only show these if a user is logged in */}
         {user && (

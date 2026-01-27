@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
-import TouristSpot from './touristSpot';
+import { useLoaderData } from 'react-router-dom';
+import AllTouristSpot from './AllTouristSpot';
 
+const AllTouristSpots = () => {
 
-const TouristSpots = () => {
     const loadedTouristSpots = useLoaderData();
-    // Provide an empty array fallback to prevent .map() errors
+
     const [touristSpots, setTouristSpots] = useState(loadedTouristSpots || []);
 
     return (
@@ -21,32 +21,24 @@ const TouristSpots = () => {
                 {/* Grid Layout for Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {
-                        touristSpots.slice(0, 6).map(spot =>
-                            <TouristSpot
-                                key={spot?._id || Math.random()}
+                        touristSpots.map(spot =>
+                            <AllTouristSpot 
+                            key={spot?._id || Math.random()}
                                 spot={spot}
                                 touristSpots={touristSpots}
                                 setTouristSpots={setTouristSpots}
-                            ></TouristSpot>
+                                >
+                                
+                            </AllTouristSpot>
                         )
                     }
 
                 </div>
             </div>
 
-            {/* Container to center the button */}
-            <div className="flex justify-center mt-12 w-full">
-                <Link to="/all-tourist-spots">
-                    <button className='bg-gradient-to-r from-orange-400 to-purple-600
-                        hover:scale-105 text-white font-bold py-3 lg:py-4 px-8 lg:px-10 rounded-xl lg:rounded-2xl
-                         shadow-lg 
-                        transition-transform text-sm lg:text-base w-max'>
-                        View All Spots
-                    </button>
-                </Link>
-            </div>
+            
         </div>
     );
 };
 
-export default TouristSpots;
+export default AllTouristSpots;

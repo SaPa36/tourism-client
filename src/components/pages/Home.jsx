@@ -1,6 +1,5 @@
 import React from 'react';
 import Banner from './Banner';
-import TouristSpot from './touristSpot';
 import { useLoaderData } from 'react-router-dom';
 import TouristSpots from './TouristSpots';
 
