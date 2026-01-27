@@ -1,6 +1,6 @@
 import {
     createBrowserRouter
-  } from "react-router-dom";
+} from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -11,6 +11,7 @@ import AddTouristSpot from "../pages/AddTouristSpot";
 
 import MyList from "../pages/MyList";
 import AllTouristSpots from "../pages/AllTouristSpots";
+import UpdateSpot from "../pages/UpdateSpot";
 
 
 const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>
             },
-            
+
             {
                 path: "/all-tourist-spots",
                 element: <AllTouristSpots>  </AllTouristSpots>,
@@ -54,9 +55,23 @@ const router = createBrowserRouter([
                     <PrivateRouter>
                         <MyList></MyList>
                     </PrivateRouter>
-                )
+                ),
+
+
             },
             
+            {
+                path: "/update-spot/:id",
+                element: 
+                <PrivateRouter>
+                    <UpdateSpot></UpdateSpot>
+                </PrivateRouter>,
+                
+                loader: ({ params }) => fetch(`http://localhost:3000/tourist-spots/${params.id}`)
+            }
+
+
+
         ]
     }
 ]);

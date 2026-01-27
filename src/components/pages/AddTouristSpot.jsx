@@ -11,14 +11,14 @@ const AddTouristSpot = () => {
 
         const spotData = {
             image: form.image.value,
-            spotName: form.name.value,
+            spotName: form.spotName.value,
             country: form.country.value,
             location: form.location.value,
             description: form.description.value,
-            averageCost: form.cost.value,
+            averageCost: form.averageCost.value,
             season: form.season.value,
             travelTime: form.travelTime.value,
-            totalVisitors: form.totalVisit.value,
+            totalVisitors: form.totalVisitors.value,
             userEmail: user?.email,
             userName: user?.displayName
         };
@@ -73,7 +73,7 @@ const AddTouristSpot = () => {
                         {/* Spot Name */}
                         <div className="form-control">
                             <label className="label"><span className="label-text text-gray-300 font-semibold">Tourist Spot Name</span></label>
-                            <input type="text" name="name" placeholder="e.g. Bandarban" className="input input-bordered bg-white/5 border-white/20 text-white focus:border-cyan-400" required />
+                            <input type="text" name="spotName" placeholder="e.g. Bandarban" className="input input-bordered bg-white/5 border-white/20 text-white focus:border-cyan-400" required />
                         </div>
 
                         {/* Country Dropdown */}
@@ -105,7 +105,7 @@ const AddTouristSpot = () => {
                         {/* Average Cost */}
                         <div className="form-control">
                             <label className="label"><span className="label-text text-gray-300 font-semibold">Average Cost ($)</span></label>
-                            <input type="number" name="cost" placeholder="e.g. 500" className="input input-bordered bg-white/5 border-white/20 text-white focus:border-cyan-400" required />
+                            <input type="number" name="averageCost" placeholder="e.g. 500" className="input input-bordered bg-white/5 border-white/20 text-white focus:border-cyan-400" required />
                         </div>
 
                         {/* Seasonality Dropdown */}
@@ -128,7 +128,7 @@ const AddTouristSpot = () => {
                         {/* Total Visitors */}
                         <div className="form-control">
                             <label className="label"><span className="label-text text-gray-300 font-semibold">Total Visitors Per Year</span></label>
-                            <input type="text" name="totalVisit" placeholder="e.g. 100,000+" className="input input-bordered bg-white/5 border-white/20 text-white focus:border-cyan-400" required />
+                            <input type="text" name="totalVisitors" placeholder="e.g. 100,000+" className="input input-bordered bg-white/5 border-white/20 text-white focus:border-cyan-400" required />
                         </div>
                     </div>
 
