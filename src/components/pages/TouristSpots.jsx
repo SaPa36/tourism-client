@@ -21,7 +21,7 @@ const TouristSpots = () => {
                 {/* Grid Layout for Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {
-                        touristSpots.map(spot => 
+                        touristSpots.slice(0, 6).map(spot => 
                             <TouristSpot
                                 key={spot?._id || Math.random()} 
                                 spot={spot}
@@ -30,6 +30,7 @@ const TouristSpots = () => {
                             ></TouristSpot>
                         )
                     }
+                    <button className='mt-4 px-2  bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-3 rounded-xl hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all active:scale-95'>View All Spots</button>
                 </div>
             </div>
         </div>

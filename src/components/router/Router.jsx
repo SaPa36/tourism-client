@@ -9,6 +9,7 @@ import Banner from "../pages/Banner";
 import PrivateRouter from "./PrivateRouter";
 import AddTouristSpot from "../pages/AddTouristSpot";
 import TouristSpots from "../pages/TouristSpots";
+import MyList from "../pages/MyList";
 
 
 const router = createBrowserRouter([
@@ -44,7 +45,15 @@ const router = createBrowserRouter([
                         <AddTouristSpot></AddTouristSpot>
                     </PrivateRouter>
                 )
-            }
+            },
+            {
+                path: "/my-list",
+                element: (
+                    <PrivateRouter>
+                        <MyList></MyList>
+                    </PrivateRouter>
+                )
+            },
             
         ]
     }
