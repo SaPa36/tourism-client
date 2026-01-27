@@ -8,7 +8,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, logOut } = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false);
 
     const handleSignup = event => {
@@ -49,6 +49,12 @@ const Register = () => {
                 console.log(createdUser);
                 form.reset();
                 const createdAt = result.user?.metadata?.creationTime;
+                
+                logOut() 
+                .then(() => {
+                    toast.success("Registration Successful! Please Login.");
+                    navigate("/login"); // Redirect to login page
+                })
 
                 const user = { name, email, photoURL, createdAt }
                 fetch('http://localhost:3000/users', {

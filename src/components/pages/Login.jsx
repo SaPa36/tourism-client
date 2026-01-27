@@ -68,6 +68,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                navigate(location.state?.from?.pathname || "/");
             })
             .catch(error => {
                 console.log(error);
@@ -113,7 +114,7 @@ const Login = () => {
                                 <Link className='text-blue-800 font-bold' to="/register">  Register</Link></p>
                         </fieldset>
                     </div>
-                    <button onClick={handleGoogleSignIn} className="flex items-center ml-40 justify-center w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 transition">
+                    <button onClick={handleGoogleSignIn} className="flex items-center ml-32  lg:ml-40 justify-center w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 transition">
                         <FaGoogle className="text-3xl text-red-500 " />
                     </button>
 
