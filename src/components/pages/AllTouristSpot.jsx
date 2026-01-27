@@ -10,7 +10,7 @@ const AllTouristSpot = ({ spot, touristSpots, setTouristSpots }) => {
         <div>
             <div className="bg-white/5 shadow-blue-900 backdrop-blur-md border border-white/10 rounded-[2.5rem] overflow-hidden group hover:border-cyan-400/50 transition-all duration-500 shadow-2xl">
                 {/* Image Section */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-60 overflow-hidden">
                     <img
                         src={image || "https://via.placeholder.com/400"}
                         alt={spotName}
@@ -24,7 +24,7 @@ const AllTouristSpot = ({ spot, touristSpots, setTouristSpots }) => {
                 {/* Content Section */}
                 <div className="p-8">
                     <h3 className="text-2xl font-bold text-white mb-2">{spotName}</h3>
-                    <p className="text-gray-400 text-sm mb-4 flex items-center gap-2">
+                    <p className="text-gray-400 text-sm  flex items-center gap-2">
                         📍 {country}
                     </p>
 
