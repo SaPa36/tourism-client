@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 
@@ -39,6 +40,12 @@ const Register = () => {
         createUser(email, password)
 
             .then(result => {
+
+                // 1. Update the profile with the name
+                updateProfile(result.user, {
+                    displayName: name,
+                    // Optional: photoURL: "https://example.com/jane-doe/photo.jpg"
+                })
                 Swal.fire({
                     title: "Registration Successful!",
                     icon: "success",
@@ -49,12 +56,12 @@ const Register = () => {
                 console.log(createdUser);
                 form.reset();
                 const createdAt = result.user?.metadata?.creationTime;
-                
-                logOut() 
-                .then(() => {
-                    toast.success("Registration Successful! Please Login.");
-                    navigate("/login"); // Redirect to login page
-                })
+
+                logOut()
+                    .then(() => {
+                        toast.success("Registration Successful! Please Login.");
+                        navigate("/login"); // Redirect to login page
+                    })
 
                 const user = { name, email, photoURL, createdAt }
                 fetch('http://localhost:3000/users', {

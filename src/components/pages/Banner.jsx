@@ -92,8 +92,10 @@ const Banner = () => {
 
                 {/* Navigation Arrows: Repositioned for mobile */}
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between z-20">
-                    <a href="#slide3" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20 text-white hover:bg-cyan-500">❮</a>
-                    <a href="#slide2" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20 text-white hover:bg-cyan-500">❯</a>
+                    <a href="#slide3" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20
+                     text-white hover:bg-cyan-500">❮</a>
+                    <a href="#slide2" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20
+                     text-white hover:bg-cyan-500">❯</a>
                 </div>
             </div>
 
@@ -181,8 +183,10 @@ const Banner = () => {
 
                 {/* Navigation Arrows: Repositioned for mobile */}
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between z-20">
-                    <a href="#slide3" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20 text-white hover:bg-cyan-500">❮</a>
-                    <a href="#slide2" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20 text-white hover:bg-cyan-500">❯</a>
+                    <a href="#slide1" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20
+                     text-white hover:bg-cyan-500">❮</a>
+                    <a href="#slide3" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20
+                     text-white hover:bg-cyan-500">❯</a>
                 </div>
             </div>
 
@@ -271,8 +275,10 @@ const Banner = () => {
 
                 {/* Navigation Arrows: Repositioned for mobile */}
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between z-20">
-                    <a href="#slide3" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20 text-white hover:bg-cyan-500">❮</a>
-                    <a href="#slide2" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20 text-white hover:bg-cyan-500">❯</a>
+                    <a href="#slide2" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20
+                     text-white hover:bg-cyan-500">❮</a>
+                    <a href="#slide1" className="btn btn-circle btn-sm lg:btn-md bg-black/40 border-white/20
+                     text-white hover:bg-cyan-500">❯</a>
                 </div>
             </div>
 
