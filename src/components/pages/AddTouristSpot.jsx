@@ -26,7 +26,7 @@ const AddTouristSpot = () => {
         console.log(spotData);
 
         //add to the server
-        fetch('http://localhost:3000/tourist-places', {
+        fetch('http://localhost:3000/tourist-spots', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ const AddTouristSpot = () => {
         <div className="min-h-screen bg-[#0B0F19]  py-12 px-4">
             <div className="max-w-4xl mx-auto bg-white/5 shadow-blue-900 backdrop-blur-xl border border-white/10 p-8 lg:p-12
              rounded-[2.5rem] shadow-2xl">
-                
+
                 {/* Header */}
                 <div className="text-center mb-10">
                     <h2 className="text-4xl lg:text-5xl font-black text-white mb-2">
@@ -67,9 +67,9 @@ const AddTouristSpot = () => {
                     <p className="text-gray-400">Share a hidden gem with the TerraQuest community.</p>
                 </div>
 
-                <form onSubmit={handleAddSpot} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        
+                <form onSubmit={handleAddSpot} className="space-y-6 ">
+                    <div className="grid grid-cols-1 md:grid-cols-2 ml-10 gap-6">
+
                         {/* Spot Name */}
                         <div className="form-control">
                             <label className="label"><span className="label-text text-gray-300 font-semibold">Tourist Spot Name</span></label>
@@ -133,13 +133,25 @@ const AddTouristSpot = () => {
                     </div>
 
                     {/* Short Description (Full Width) */}
-                    <div className="form-control">
-                        <label className="label"><span className="label-text text-gray-300 font-semibold mr-5">Short Description</span></label>
-                        <textarea name="description" placeholder="Describe the beauty of this spot..." className="textarea textarea-bordered h-24 bg-white/5 border-white/20 text-white focus:border-cyan-400" required></textarea>
+                    <div className="form-control w-full flex flex-col items-center">
+                        {/* Label on top, centered */}
+                        <label className="label">
+                            <span className="label-text text-gray-300 font-semibold text-center">
+                                Short Description
+                            </span>
+                        </label>
+
+                        {/* Textarea: Width controlled by md:w-3/4 or max-w-md */}
+                        <textarea
+                            name="description"
+                            placeholder="Describe the beauty of this spot..."
+                            className="textarea textarea-bordered h-32 w-full max-w-lg bg-white/5 border-white/20 text-white focus:border-cyan-400 text-center"
+                            required>
+                        </textarea>
                     </div>
 
                     {/* Read-only User Info */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-60 pointer-events-none">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-10 opacity-60 pointer-events-none">
                         <div className="form-control">
                             <label className="label"><span className="label-text text-gray-400">Added By (Email)</span></label>
                             <input type="text" value={user?.email || ""} className="input input-bordered bg-white/10" readOnly />

@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import Banner from "../pages/Banner";
 import PrivateRouter from "./PrivateRouter";
 import AddTouristSpot from "../pages/AddTouristSpot";
+import TouristSpots from "../pages/TouristSpots";
 
 
 const router = createBrowserRouter([
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
             // Define child routes here
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:3000/tourist-spots')
             },
             {
                 path: "/login",
@@ -27,6 +29,11 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>
+            },
+            {
+                path: "/tourist-spots",
+                element: <TouristSpots></TouristSpots>,
+                
             },
 
             // Private Routes
