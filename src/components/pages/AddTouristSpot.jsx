@@ -24,7 +24,34 @@ const AddTouristSpot = () => {
         };
 
         console.log(spotData);
-        // Add your fetch/axios POST request here to send to MongoDB
+
+        //add to the server
+        fetch('http://localhost:3000/tourist-places', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(spotData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                Swal.fire({
+                    title: "Tourist Spot Added Successfully!",
+                    icon: "success",
+                    draggable: true
+                });
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error adding tourist spot:', error);
+                Swal.fire({
+                    title: "Failed to Add Tourist Spot!",
+                    text: error.message,
+                    icon: "error",
+                    draggable: true
+                });
+            });
     };
 
     return (
