@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AllTouristSpot = ({ spot, touristSpots, setTouristSpots }) => {
     if (!spot) return null;
@@ -33,9 +34,13 @@ const AllTouristSpot = ({ spot, touristSpots, setTouristSpots }) => {
                         <span className="text-xs text-gray-500">🕒 {travelTime}</span>
                     </div>
 
-                    <button className="w-full mt-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-3 rounded-xl hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all active:scale-95">
-                        View Details
-                    </button>
+                    <Link to={`/view-details/${_id}`}>
+                        <button className="w-full mt-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-3 rounded-xl hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all active:scale-95">
+                            View Details
+                        </button>
+                    </Link>
+
+
                 </div>
 
 

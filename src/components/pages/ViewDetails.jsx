@@ -8,7 +8,7 @@ const ViewDetails = () => {
 
     return (
         <div className="min-h-screen bg-[#0B0F19] py-12 px-4">
-            <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl">
+            <div className="max-w-6xl mx-auto shadow-blue-900 bg-white/5 backdrop-blur-md border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl">
                 
                 {/* Hero Image Section */}
                 <div className="relative h-[400px] w-full">
@@ -34,8 +34,8 @@ const ViewDetails = () => {
                         </div>
 
                         {/* Stats Grid */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
-                            <div className="bg-white/5 p-4 rounded-2xl border border-white/10 text-center">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4  pt-6">
+                            <div className="bg-white/5 p-4 rounded-2xl border  border-white/10 text-center">
                                 <FaDollarSign className="mx-auto text-cyan-400 mb-2" />
                                 <p className="text-xs text-gray-500 uppercase">Cost</p>
                                 <p className="text-white font-bold">${averageCost}</p>
