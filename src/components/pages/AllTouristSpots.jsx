@@ -46,7 +46,7 @@ const AllTouristSpots = () => {
                             {countryQuery ? (
                                 <>Tourism Places in <span className="text-cyan-400">{countryQuery}</span></>
                             ) : (
-                                <>All <span className="text-cyan-400">Tourist</span> <span className="text-fuchsia-500">Spots</span></>
+                                <>All <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">Tourist Spots</span></>
                             )}
                         </h2>
                         <p className="text-gray-400 mt-2 text-sm uppercase tracking-widest">

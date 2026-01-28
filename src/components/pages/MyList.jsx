@@ -42,7 +42,7 @@ const MyList = () => {
     return (
         <div className="min-h-screen bg-[#0B0F19] py-12 px-4">
             <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-[2rem] shadow-2xl">
-                <h2 className="text-3xl font-bold text-white mb-8 text-center">My Added <span className="text-cyan-400">Tourist Spots</span></h2>
+                <h2 className="text-3xl font-bold text-white mb-8 text-center">My Added <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">Tourist Spots</span></h2>
                 
                 <div className="overflow-x-auto">
                     <table className="table w-full text-gray-300">

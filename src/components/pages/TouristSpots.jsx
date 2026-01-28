@@ -13,7 +13,7 @@ const TouristSpots = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl lg:text-6xl font-black text-white mb-4">
-                        Explore <span className="text-cyan-400">Tourist</span> <span className="text-fuchsia-500">Spots</span>
+                        Explore <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">Tourist Spots</span>
                     </h2>
                     <p className="text-gray-400">Discover breathtaking destinations curated just for you.</p>
                 </div>

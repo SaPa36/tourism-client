@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import TouristSpots from './TouristSpots';
 import CountrySection from './CountrySection';
 import Testimonials from './Testimonials';
+import TravelGuides from './TravelGuides';
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
             <TouristSpots spots={spots}></TouristSpots>
             <CountrySection></CountrySection>
             <Testimonials></Testimonials>
+            <TravelGuides></TravelGuides>
         </div>
     );
 };
