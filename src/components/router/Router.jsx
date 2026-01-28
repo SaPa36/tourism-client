@@ -15,6 +15,8 @@ import UpdateSpot from "../pages/UpdateSpot";
 import ViewDetails from "../pages/ViewDetails";
 
 
+
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:3000/tourist-spots')
+                loader: () => fetch('https://tourism-server-rose.vercel.app/tourist-spots')
             },
             {
                 path: "/login",
@@ -38,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path: "/all-tourist-spots",
                 element: <AllTouristSpots>  </AllTouristSpots>,
-                loader: () => fetch('http://localhost:3000/tourist-spots')
+                loader: () => fetch('https://tourism-server-rose.vercel.app/tourist-spots')
             },
 
             // Private Routes
@@ -68,16 +70,16 @@ const router = createBrowserRouter([
                         <UpdateSpot></UpdateSpot>
                     </PrivateRouter>,
 
-                loader: ({ params }) => fetch(`http://localhost:3000/tourist-spots/${params.id}`)
+                loader: ({ params }) => fetch(`https://tourism-server-rose.vercel.app/${params.id}`)
             },
 
             {
                 path: "/view-details/:id",
-                element: 
-                <PrivateRouter>
-                    <ViewDetails></ViewDetails>
-                </PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:3000/tourist-spots/${params.id}`)
+                element:
+                    <PrivateRouter>
+                        <ViewDetails></ViewDetails>
+                    </PrivateRouter>,
+                loader: ({ params }) => fetch(`https://tourism-server-rose.vercel.app/${params.id}`)
             }
 
 

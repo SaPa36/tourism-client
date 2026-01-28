@@ -48,7 +48,8 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-2xl font-bold bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent ">TerraQuest</a>
+                <a className="btn btn-ghost text-4xl font-bold bg-gradient-to-r from-cyan-400
+                 to-fuchsia-500 bg-clip-text text-transparent ">TerraQuest</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal  px-1">
@@ -76,9 +77,12 @@ const Navbar = () => {
                                 </div>
                             </div>
                             <div>
-                                <button onClick={handleLogOut} className="ml-3 bg-gradient-to-br from-blue-500 to-teal-400 
-                    hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full 
-                    transition-all duration-300 shadow-lg shadow-blue-500/20 active:scale-95">
+                                <button
+                                    onClick={handleLogOut}
+                                    className="ml-3 bg-gradient-to-r from-cyan-400 to-fuchsia-500 
+               hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full 
+               transition-all duration-300 shadow-lg shadow-fuchsia-500/20 active:scale-95"
+                                >
                                     Logout
                                 </button>
                             </div>
@@ -87,15 +91,25 @@ const Navbar = () => {
                 ) : (
                     <>
                         <NavLink to="/login">
-                            <button className="bg-gradient-to-br from-blue-500 to-teal-400 
-                    hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full 
-                    transition-all duration-300 shadow-lg shadow-blue-500/20 active:scale-95">Login</button>
+                            <button
+                                onClick={handleLogOut}
+                                className="ml-3 bg-gradient-to-r from-cyan-400 to-fuchsia-500 
+               hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full 
+               transition-all duration-300 shadow-lg shadow-fuchsia-500/20 active:scale-95"
+                            >
+                                Login
+                            </button>
                         </NavLink>
 
                         <NavLink to="/register">
-                            <button className="bg-gradient-to-br ml-3 from-blue-500 to-teal-400 
-                    hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full 
-                    transition-all duration-300 shadow-lg shadow-blue-500/20 active:scale-95">Register</button>
+                            <button
+                                onClick={handleLogOut}
+                                className="ml-3 bg-gradient-to-r from-cyan-400 to-fuchsia-500 
+               hover:brightness-110 text-white font-semibold py-2 px-6 rounded-full 
+               transition-all duration-300 shadow-lg shadow-fuchsia-500/20 active:scale-95"
+                            >
+                                Register
+                            </button>
                         </NavLink>
                     </>
 
