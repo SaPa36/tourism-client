@@ -3,6 +3,7 @@ import Banner from './Banner';
 import { useLoaderData } from 'react-router-dom';
 import TouristSpots from './TouristSpots';
 import CountrySection from './CountrySection';
+import Testimonials from './Testimonials';
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Banner></Banner>
             <TouristSpots spots={spots}></TouristSpots>
             <CountrySection></CountrySection>
+            <Testimonials></Testimonials>
         </div>
     );
 };
