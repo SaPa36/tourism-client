@@ -1,16 +1,95 @@
-# React + Vite
+🌍 Tourism Management System
+A full-stack tourism management platform where users can explore breathtaking destinations, add their own discovered spots, and manage their travel lists. Built with the MERN stack (MongoDB, Express, React, Node.js).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 Live Links
+Frontend: https://tourism-43055.web.app
 
-Currently, two official plugins are available:
+Backend API: https://tourism-server-rose.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Features
+User Authentication: Secure Login and Registration using Firebase.
 
-## React Compiler
+Explore Destinations: Browse tourist spots added by travelers worldwide.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Personalized Dashboard: Add, View, Update, and Delete (CRUD) your own tourist spots.
 
-## Expanding the ESLint configuration
+Interactive UI: Dark-themed modern design with glassmorphism effects.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Responsive Design: Fully optimized for Mobile, Tablet, and Desktop.
+
+<img width="1334" height="598" alt="image" src="https://github.com/user-attachments/assets/de73b55d-6ddf-450d-803a-d6b9c11a883e" />
+
+
+[INSERT SCREENSHOT: Home Page Banner or Tourist Spot Cards]
+
+🛠️ Tech Stack
+Frontend:
+
+React.js
+
+React Router Dom (v6)
+
+Tailwind CSS & DaisyUI
+
+Firebase Authentication
+
+Backend:
+
+Node.js & Express.js
+
+MongoDB Atlas (Database)
+
+CORS & Dotenv
+
+📸 Screenshots
+🖥️ Desktop View
+[INSERT SCREENSHOT: Full Homepage view]
+
+📱 Mobile Responsiveness
+[INSERT SCREENSHOT: Mobile view showing the Navbar menu]
+
+🔐 User List Management
+[INSERT SCREENSHOT: The 'My List' page showing the table of spots]
+
+⚙️ Installation & Local Setup
+To run this project locally, follow these steps:
+
+1. Clone the repository
+Bash
+git clone https://github.com/your-username/tourism-client-repo.git
+2. Setup Server
+Bash
+cd tourism-server
+npm install
+# Create a .env file and add your MongoDB credentials
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+npm start
+3. Setup Client
+Bash
+cd tourism-client
+npm install
+npm run dev
+🛡️ Environment Variables
+To run this project, you will need to add the following environment variables to your .env file:
+
+Backend:
+
+DB_USERNAME
+
+DB_PASSWORD
+
+Frontend (Firebase Config):
+
+VITE_apiKey
+
+VITE_authDomain
+
+VITE_projectId
+
+👤 Author
+Nur Sapa
+
+GitHub: @your-github-profile
+
+LinkedIn: Your Name
