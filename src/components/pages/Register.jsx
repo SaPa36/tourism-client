@@ -64,7 +64,7 @@ const Register = () => {
                     })
 
                 const user = { name, email, photoURL, createdAt }
-                fetch('http://localhost:3000/users', {
+                fetch('https://tourism-server-rose.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -9,7 +9,7 @@ const TouristSpots = () => {
     const [touristSpots, setTouristSpots] = useState(loadedTouristSpots || []);
 
     return (
-        <div className="min-h-screen bg-[#0B0F19] py-16 px-4">
+        <div className="min-h-screen bg-[#0B0F19]  px-4">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl lg:text-6xl font-black text-white mb-4">

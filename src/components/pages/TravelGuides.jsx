@@ -30,7 +30,7 @@ const TravelGuides = () => {
     ];
 
     return (
-        <section className="py-24 bg-[#0B0F19]">
+        <section className=" bg-[#0B0F19]">
             <div className="max-w-7xl mx-auto px-4">
                 
                 {/* Header with a cleaner look */}
@@ -49,7 +49,7 @@ const TravelGuides = () => {
                 {/* Grid with improved spacing and card hover effects */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {guides.map((guide) => (
-                        <div key={guide.id} className="group relative bg-[#161B26] rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-cyan-500/30 transition-all duration-500 shadow-2xl">
+                        <div key={guide.id} className="group relative shadow-2xl shadow-blue-900 rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-cyan-500/30 transition-all duration-500 shadow-2xl">
                             
                             {/* Image with Dark Overlay */}
                             <div className="h-64 w-full overflow-hidden relative">

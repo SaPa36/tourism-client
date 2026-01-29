@@ -57,10 +57,10 @@ const CountrySection = () => {
     const navigate = useNavigate();
 
     return (
-        <section className="py-20 bg-[#0B0F19]">
+        <section className=" bg-[#0B0F19]">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+                    <h2 className="text-4xl md:text-5xl font-black text-white ">
                         Explore by <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">Country</span>
                     </h2>
                 </div>
