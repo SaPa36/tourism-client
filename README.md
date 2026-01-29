@@ -41,22 +41,32 @@ CORS & Dotenv
 
 📸 Screenshots
 🖥️ Desktop View
+
+
 <img width="412" height="544" alt="image" src="https://github.com/user-attachments/assets/4f2406ed-dae1-46bd-bf19-43be28200818" />
 
 
 📱 Mobile Responsiveness
+
+
 <img width="591" height="1280" alt="image" src="https://github.com/user-attachments/assets/e560813d-05c2-4b5f-a9d3-dfc745c28529" />
 
 
 🖥️ Add Tourist Spots
+
+
 <img width="460" height="466" alt="image" src="https://github.com/user-attachments/assets/6f563d21-e768-474a-b9d9-11a31a4f8ae7" />
 
 🖥️ Login Page
+
+
 <img width="1324" height="555" alt="image" src="https://github.com/user-attachments/assets/6d9c34dd-12e4-4d8a-8b50-a67082cb369d" />
 
 
 
 🔐 User List Management
+
+
 <img width="1322" height="583" alt="image" src="https://github.com/user-attachments/assets/ba44c866-3b7e-4820-b90e-8fcc5fef14a5" />
 
 
