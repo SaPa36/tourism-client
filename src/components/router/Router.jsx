@@ -71,7 +71,7 @@ const router = createBrowserRouter([
                         <UpdateSpot></UpdateSpot>
                     </PrivateRouter>,
 
-                loader: ({ params }) => fetch(`https://tourism-server-rose.vercel.app/${params.id}`)
+                loader: ({ params }) => fetch(`https://tourism-server-rose.vercel.app/tourist-spots/${params.id}`)
             },
 
             {

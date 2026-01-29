@@ -41,7 +41,7 @@ const UpdateSpot = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // If user confirms, send the fetch request
-                fetch(`https://tourism-server-rose.vercel.app/${_id}`, {
+                fetch(`https://tourism-server-rose.vercel.app/tourist-spots/${_id}`, {
                     method: 'PUT',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(updatedSpot)
