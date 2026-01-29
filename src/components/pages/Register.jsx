@@ -125,9 +125,9 @@ const Register = () => {
 
 
 
-                            <label className="label text-black pl-2 required font-bold">Photo URL</label>
+                            {/* <label className="label text-black pl-2 required font-bold">Photo URL</label>
                             <input type="text" className="input rounded-xl" name='photoURL'
-                                placeholder="Photo URL" />
+                                placeholder="Photo URL" /> */}
 
                             <button className="btn btn-neutral rounded-xl mt-4">Register</button>
 
