@@ -20,8 +20,8 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const photoURL = form.photoURL.value;
-        console.log(name, email, password, photoURL);
+        //const photoURL = form.photoURL.value;
+        console.log(name, email, password);
 
 
         //password checkinng
@@ -64,7 +64,7 @@ const Register = () => {
                         navigate("/login"); // Redirect to login page
                     })
 
-                const user = { name, email, photoURL, createdAt }
+                const user = { name, email, createdAt }
                 fetch('https://tourism-server-rose.vercel.app/users', {
                     method: 'POST',
                     headers: {
