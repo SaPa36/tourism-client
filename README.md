@@ -49,7 +49,7 @@ CORS & Dotenv
 📱 Mobile Responsiveness
 
 
-<img width="591" height="1280" alt="image" src="https://github.com/user-attachments/assets/e560813d-05c2-4b5f-a9d3-dfc745c28529" />
+<img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/e560813d-05c2-4b5f-a9d3-dfc745c28529" />
 
 
 🖥️ Add Tourist Spots
